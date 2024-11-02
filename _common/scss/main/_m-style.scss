@@ -1,0 +1,79 @@
+@mixin hover {
+
+  //hoverはPCのみ
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  width: 100vw;
+  height: 100svh;
+  font-size: 1.6rem;
+  line-height: 1.4;
+}
+
+main {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-content: center;
+  padding: 0 20px;
+}
+
+.quiz {
+  width: 100%;
+  max-width: 800px;
+  margin-inline: auto;
+
+  &--title {
+    font-size: 3.2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  &--issue {
+    padding: 24px 40px 24px 64px;
+    background-color: #FEE2F1;
+    border-radius: 4px;
+    margin-bottom: 24px;
+    position: relative;
+
+    &::before {
+      content: 'Q.';
+      position: absolute;
+      left: 40px;
+    }
+  }
+
+  &--btn_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 12px;
+
+    &__item {
+      padding: 32px 40px;
+      background-color: #EF078C;
+      color: #fff;
+      font-size: 1.4rem;
+      display: grid;
+      place-content: center;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all ease 0.4s;
+
+      @include hover {
+        background-color: #BF006E;
+
+      }
+    }
+  }
+}
